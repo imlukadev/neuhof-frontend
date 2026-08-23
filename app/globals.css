@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --color-primary: var(--primary); --color-border: var(--border); --font-sans: var(--font-manrope), sans-serif; --font-mono: var(--font-space-grotesk), monospace; --font-serif: var(--font-space-grotesk), sans-serif; }
+:root { color-scheme: light; --background: #f6f7f2; --foreground: #17251b; --primary: #235d37; --border: #d9ded4; }
+* { box-sizing: border-box; border-color: var(--border); }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-manrope), sans-serif; }
+a { color: inherit; text-decoration: none; }
+.site-header { background: #173d27; color: #f6f7f2; }
+.header-inner, .hero-inner, .content, footer { max-width: 1080px; margin: 0 auto; }
+.header-inner { height: 82px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; gap: 12px; align-items: center; }
+.brand b { display: block; font-size: 18px; letter-spacing: .08em; }
+.brand small { color: #b8d8bd; font-size: 12px; }
+.crest { width: 44px; height: 48px; display: grid; place-items: center; color: #173d27; background: #b9de9e; border-radius: 12px 12px 17px 17px; }
+.crest.small { width: 29px; height: 31px; border-radius: 7px 7px 11px 11px; }
+.country-note { color: #c7d7c6; font-size: 13px; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }.germany-clock { display: flex; align-items: center; gap: 6px; }.germany-clock strong { color: #f6f7f2; font-family: var(--font-space-grotesk), sans-serif; font-size: 16px; }.time-difference { color: #9fc3a5; font-size: 11px; }
+.hero { background: #dfead9; border-bottom: 1px solid #ccd9c8; }
+.hero-inner { padding: 64px 24px 58px; }
+.eyebrow, .section-kicker { color: #39744a; letter-spacing: .13em; font-weight: 700; font-size: 12px; display: flex; align-items: center; gap: 8px; }
+h1, h2, .brand b, .game-meta, .eyebrow, .section-kicker, .hero-live, .watch-button { margin: 0; font-family: var(--font-space-grotesk), sans-serif; } h1, h2 { letter-spacing: -.035em; }
+h1 { margin-top: 15px; font-size: clamp(42px, 6vw, 72px); line-height: .98; max-width: 720px; }
+h1 em { color: #39744a; font-style: normal; }
+.hero p { max-width: 510px; font-size: 18px; line-height: 1.55; color: #49604d; margin: 24px 0 30px; }
+.hero-live, .watch-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #d64b3e; color: white; font-size: 15px; font-weight: 800; letter-spacing: .04em; border-radius: 9px; padding: 16px 20px; box-shadow: 0 4px 0 #b6382d; }
+.hero-live:hover, .watch-button:hover { background: #bd3e34; }
+.live-dot { width: 10px; height: 10px; border-radius: 50%; background: white; box-shadow: 0 0 0 5px rgba(255,255,255,.2); }
+.next-note { color: #39744a; display: flex; gap: 10px; align-items: center; font-weight: 700; }
+.content { padding: 50px 24px 70px; }
+.content section + section { margin-top: 56px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 18px; }
+h2 { font-size: 34px; margin-top: 5px; }
+.local-time { color: #738078; font-size: 13px; }
+.game-list { display: grid; gap: 12px; }
+.game-card { background: white; border: 1px solid #dce2d9; border-radius: 12px; padding: 19px 20px; box-shadow: 0 2px 5px rgba(23,61,39,.04); }
+.game-card-live { border: 2px solid #d64b3e; }
+.game-meta { color: #748078; display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.game-meta span { display: flex; align-items: center; gap: 6px; }
+.matchup { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; padding: 20px 0; }
+.team { display: flex; align-items: center; gap: 11px; font-size: 16px; }
+.team-away { justify-content: end; text-align: right; }
+.team-mark { width: 45px; height: 45px; flex: 0 0 45px; border-radius: 50%; display: grid; place-items: center; overflow: hidden; font-weight: 800; font-size: 20px; border: 1px solid rgba(0,0,0,.12); }
+.team-mark img { width: 100%; height: 100%; object-fit: contain; }
+.score { color: #39744a; font-weight: 800; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.watch-button { width: 100%; padding: 13px; font-size: 13px; }
+.past-section { padding-top: 10px; }
+.empty { color: #738078; }
+footer { border-top: 1px solid var(--border); padding: 24px; display: flex; align-items: center; gap: 10px; color: #6b786d; font-size: 13px; }
+footer a { margin-left: auto; color: #39744a; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+.footer-sep { color: #b6c0b5; }
+.live-ribbon { color: #d64b3e; font-size: 12px; font-weight: 900; letter-spacing: .08em; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }.score-live { color: #d64b3e; font-size: 17px; }.hero-live-state { background: #f6d8d1; }.preview-toggle { margin-top: 22px; display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: #39744a; font-size: 13px; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 6px 0; }
+@media (max-width: 640px) { .header-inner { height: 70px; padding: 0 16px; } .brand b { font-size: 16px; } .country-note { display: none; } .hero-inner { padding: 42px 18px 34px; } h1 { font-size: 42px; } .hero p { font-size: 16px; margin: 20px 0 25px; } .hero-live { width: 100%; padding: 17px 12px; font-size: 13px; } .content { padding: 34px 16px 48px; } .section-heading { align-items: flex-start; gap: 10px; flex-direction: column; } h2 { font-size: 30px; } .local-time { font-size: 12px; } .game-card { padding: 16px 13px; border-radius: 14px; } .matchup { gap: 4px; padding: 18px 0; } .team { font-size: 12px; gap: 6px; line-height: 1.25; } .team-away { gap: 6px; } .team-mark { width: 34px; height: 34px; flex-basis: 34px; font-size: 14px; } .score { font-size: 12px; } .score-live { font-size: 14px; } .watch-button { padding: 15px 8px; font-size: 12px; } footer { flex-wrap: wrap; padding: 20px 16px; gap: 8px; } footer a { width: 100%; margin-left: 0; margin-top: 8px; justify-content: center; padding: 12px; background: #dfead9; border-radius: 8px; } }
