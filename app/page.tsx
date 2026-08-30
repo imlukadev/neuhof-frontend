@@ -1,6 +1,6 @@
 
 "use client";
-
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -341,14 +341,11 @@ export default function Page() {
           </p>
 
           {live ? (
-            <a
-              className="hero-live"
-              href="/live"
-            >
-              <span className="live-dot" />
-              ASSISTIR AO JOGO AGORA
-              <ArrowRight size={21} />
-            </a>
+<Link href="/live" className="hero-live">
+  <span className="live-dot" />
+  ASSISTIR AO JOGO AGORA
+  <ArrowRight size={21} />
+</Link>
           ) : (
             <div className="next-note">
               <CalendarDays size={20} />
