@@ -179,10 +179,18 @@ function GameCard({ game, past }: { game: Game; past?: boolean }) {
       </div>
 
       {live && (
-        <a href="/live" className="watch-button">
-          <Radio size={20} />
-          ASSISTIR AO JOGO
-          <ArrowRight size={19} />
+        <a
+          href="https://neuhof-backend.onrender.com/live"
+          style={{
+            display: "block",
+            padding: "30px",
+            background: "red",
+            color: "white",
+            position: "relative",
+            zIndex: 9999,
+          }}
+        >
+          TESTE LIVE
         </a>
       )}
     </article>
