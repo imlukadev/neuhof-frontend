@@ -23,6 +23,23 @@ import type { Game, Team } from "../lib/types";
  * false -> hides all games and assumes the live stream is available
  */
 const SHOW_GAMES = false;
+("use client");
+
+const handleWatchLive = async () => {
+  try {
+    const response = await fetch("https://neuhof-backend.onrender.com/live");
+
+    if (!response.ok) {
+      throw new Error("Não foi possível encontrar a transmissão.");
+    }
+
+    const data = await response.json();
+
+    window.location.href = data.url;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const sampleGames: Game[] = [
   {
@@ -312,9 +329,7 @@ export default function Page() {
             <button
               type="button"
               className="hero-live"
-              onClick={() => {
-                window.location.href = "/live";
-              }}
+              onClick={handleWatchLive}
             >
               <span className="live-dot" />
               ASSISTIR AO JOGO AGORA
