@@ -305,8 +305,6 @@ export default function Page() {
           {live ? (
             <a
               href="https://neuhof-backend.onrender.com/live"
-              target="_blank"
-              rel="noopener noreferrer"
               className="hero-live"
             >
               <span className="live-dot" />
