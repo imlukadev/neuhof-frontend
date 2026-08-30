@@ -303,11 +303,16 @@ export default function Page() {
           </p>
 
           {live ? (
-            <Link href="https://neuhof-backend.onrender.com/live" className="hero-live">
+            <a
+              href="https://neuhof-backend.onrender.com/live"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-live"
+            >
               <span className="live-dot" />
               ASSISTIR AO JOGO AGORA
               <ArrowRight size={21} />
-            </Link>
+            </a>
           ) : (
             <div className="next-note">
               <CalendarDays size={20} />
