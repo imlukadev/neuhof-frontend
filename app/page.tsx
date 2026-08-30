@@ -313,8 +313,7 @@ export default function Page() {
               type="button"
               className="hero-live"
               onClick={() => {
-                window.location.href =
-                  "https://neuhof-backend.onrender.com/live";
+                window.location.href = "/live";
               }}
             >
               <span className="live-dot" />
