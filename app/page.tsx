@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -36,16 +35,14 @@ const sampleGames: Game[] = [
       name: "SV Neuhof",
       color: "#b8e3a2",
       text_color: "#14311f",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/323243/image",
+      image_url: "https://img.sofascore.com/api/v1/team/323243/image",
     },
     away_team: {
       id: 1095698,
       name: "SV 1919 Hofbieber",
       color: "#3858d6",
       text_color: "#fff",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/1095698/image",
+      image_url: "https://img.sofascore.com/api/v1/team/1095698/image",
     },
     home_score: null,
     away_score: null,
@@ -60,16 +57,14 @@ const sampleGames: Game[] = [
       name: "SG Eiterfeld/Leimbach",
       color: "#3858d6",
       text_color: "#fff",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/510252/image",
+      image_url: "https://img.sofascore.com/api/v1/team/510252/image",
     },
     away_team: {
       id: 323243,
       name: "SV Neuhof",
       color: "#b8e3a2",
       text_color: "#14311f",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/323243/image",
+      image_url: "https://img.sofascore.com/api/v1/team/323243/image",
     },
     home_score: null,
     away_score: null,
@@ -84,16 +79,14 @@ const sampleGames: Game[] = [
       name: "SV Neuhof",
       color: "#b8e3a2",
       text_color: "#14311f",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/323243/image",
+      image_url: "https://img.sofascore.com/api/v1/team/323243/image",
     },
     away_team: {
       id: 1235507,
       name: "SG Bad Soden II",
       color: "#3858d6",
       text_color: "#fff",
-      image_url:
-        "https://img.sofascore.com/api/v1/team/1235507/image",
+      image_url: "https://img.sofascore.com/api/v1/team/1235507/image",
     },
     home_score: 0,
     away_score: 2,
@@ -104,8 +97,7 @@ function isLive(game: Game) {
   return (
     game.home_score === null &&
     Date.now() >= new Date(game.start_at_brazil).getTime() &&
-    Date.now() <=
-      new Date(game.start_at_brazil).getTime() + 7200000
+    Date.now() <= new Date(game.start_at_brazil).getTime() + 7200000
   );
 }
 
@@ -123,20 +115,12 @@ function TeamMark({ team }: { team: Team }) {
   );
 }
 
-function GameCard({
-  game,
-  past,
-}: {
-  game: Game;
-  past?: boolean;
-}) {
+function GameCard({ game, past }: { game: Game; past?: boolean }) {
   const live = isLive(game) && !past;
   const date = new Date(game.start_at_brazil);
 
   return (
-    <article
-      className={`game-card ${live ? "game-card-live" : ""}`}
-    >
+    <article className={`game-card ${live ? "game-card-live" : ""}`}>
       {live && (
         <div className="live-ribbon">
           <span className="live-dot" />
@@ -146,11 +130,7 @@ function GameCard({
 
       <div className="game-meta">
         <span>
-          {past ? (
-            <CheckCircle2 size={15} />
-          ) : (
-            <CalendarDays size={15} />
-          )}
+          {past ? <CheckCircle2 size={15} /> : <CalendarDays size={15} />}
 
           {past
             ? "Jogo encerrado"
@@ -236,10 +216,7 @@ export default function Page() {
 
     updateTime();
 
-    const timer = window.setInterval(
-      updateTime,
-      30000,
-    );
+    const timer = window.setInterval(updateTime, 30000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -251,9 +228,7 @@ export default function Page() {
       games
         .filter((game) => game.home_score === null)
         .sort(
-          (a, b) =>
-            +new Date(a.start_at_brazil) -
-            +new Date(b.start_at_brazil),
+          (a, b) => +new Date(a.start_at_brazil) - +new Date(b.start_at_brazil),
         ),
     [games],
   );
@@ -263,9 +238,7 @@ export default function Page() {
       games
         .filter((game) => game.home_score !== null)
         .sort(
-          (a, b) =>
-            +new Date(b.start_at_brazil) -
-            +new Date(a.start_at_brazil),
+          (a, b) => +new Date(b.start_at_brazil) - +new Date(a.start_at_brazil),
         ),
     [games],
   );
@@ -274,9 +247,7 @@ export default function Page() {
    * When games are disabled, the application is being used
    * exclusively as a live-stream landing page.
    */
-  const live = SHOW_GAMES
-    ? upcoming.some((game) => isLive(game))
-    : true;
+  const live = SHOW_GAMES ? upcoming.some((game) => isLive(game)) : true;
 
   return (
     <main>
@@ -296,24 +267,15 @@ export default function Page() {
           <div className="country-note">
             <span className="germany-clock">
               <Clock3 size={15} />
-              Alemanha{" "}
-              <strong>
-                {germanyTime || "--:--"}
-              </strong>
+              Alemanha <strong>{germanyTime || "--:--"}</strong>
             </span>
 
-            <span className="time-difference">
-              Horário local
-            </span>
+            <span className="time-difference">Horário local</span>
           </div>
         </div>
       </header>
 
-      <section
-        className={`hero ${
-          live ? "hero-live-state" : ""
-        }`}
-      >
+      <section className={`hero ${live ? "hero-live-state" : ""}`}>
         <div className="hero-inner">
           <div className="eyebrow">
             <Trophy size={17} />
@@ -341,17 +303,15 @@ export default function Page() {
           </p>
 
           {live ? (
-<Link href="/live" className="hero-live">
-  <span className="live-dot" />
-  ASSISTIR AO JOGO AGORA
-  <ArrowRight size={21} />
-</Link>
+            <Link href="https://neuhof-backend.onrender.com/live" className="hero-live">
+              <span className="live-dot" />
+              ASSISTIR AO JOGO AGORA
+              <ArrowRight size={21} />
+            </Link>
           ) : (
             <div className="next-note">
               <CalendarDays size={20} />
-              <span>
-                Próximo jogo em destaque abaixo
-              </span>
+              <span>Próximo jogo em destaque abaixo</span>
             </div>
           )}
         </div>
@@ -362,9 +322,7 @@ export default function Page() {
           <section>
             <div className="section-heading">
               <div>
-                <span className="section-kicker">
-                  AGENDA
-                </span>
+                <span className="section-kicker">AGENDA</span>
 
                 <h2>Próximos jogos</h2>
               </div>
@@ -379,38 +337,25 @@ export default function Page() {
             </div>
 
             <div className="game-list">
-              {upcoming
-                .slice(0, 5)
-                .map((game) => (
-                  <GameCard
-                    key={game.id}
-                    game={game}
-                  />
-                ))}
+              {upcoming.slice(0, 5).map((game) => (
+                <GameCard key={game.id} game={game} />
+              ))}
             </div>
           </section>
 
           <section className="past-section">
             <div className="section-heading">
               <div>
-                <span className="section-kicker">
-                  RESULTADOS
-                </span>
+                <span className="section-kicker">RESULTADOS</span>
 
                 <h2>Últimos jogos</h2>
               </div>
             </div>
 
             <div className="game-list">
-              {past
-                .slice(0, 4)
-                .map((game) => (
-                  <GameCard
-                    key={game.id}
-                    game={game}
-                    past
-                  />
-                ))}
+              {past.slice(0, 4).map((game) => (
+                <GameCard key={game.id} game={game} past />
+              ))}
             </div>
           </section>
         </div>
@@ -423,13 +368,9 @@ export default function Page() {
 
         <span>SV Neuhof</span>
 
-        <span className="footer-sep">
-          •
-        </span>
+        <span className="footer-sep">•</span>
 
-        <span>
-          Para torcedores, onde estiverem
-        </span>
+        <span>Para torcedores, onde estiverem</span>
 
         <a href="/live">
           Acessar transmissão
@@ -439,4 +380,3 @@ export default function Page() {
     </main>
   );
 }
-
