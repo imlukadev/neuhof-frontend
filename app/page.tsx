@@ -1,5 +1,6 @@
 "use client";
-import Link from "next/link";
+
+
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -23,7 +24,6 @@ import type { Game, Team } from "../lib/types";
  * false -> hides all games and assumes the live stream is available
  */
 const SHOW_GAMES = false;
-("use client");
 
 const handleWatchLive = async () => {
   try {
