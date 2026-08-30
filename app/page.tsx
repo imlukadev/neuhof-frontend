@@ -179,19 +179,17 @@ function GameCard({ game, past }: { game: Game; past?: boolean }) {
       </div>
 
       {live && (
-        <a
-          href="https://neuhof-backend.onrender.com/live"
-          style={{
-            display: "block",
-            padding: "30px",
-            background: "red",
-            color: "white",
-            position: "relative",
-            zIndex: 9999,
+        <button
+          type="button"
+          className="hero-live"
+          onClick={() => {
+            window.location.href = "https://neuhof-backend.onrender.com/live";
           }}
         >
-          TESTE LIVE
-        </a>
+          <span className="live-dot" />
+          ASSISTIR AO JOGO AGORA
+          <ArrowRight size={21} />
+        </button>
       )}
     </article>
   );
@@ -311,19 +309,18 @@ export default function Page() {
           </p>
 
           {live ? (
-            <a
-              href="https://neuhof-backend.onrender.com/live"
-              style={{
-                display: "block",
-                padding: "30px",
-                background: "red",
-                color: "white",
-                position: "relative",
-                zIndex: 9999,
+            <button
+              type="button"
+              className="hero-live"
+              onClick={() => {
+                window.location.href =
+                  "https://neuhof-backend.onrender.com/live";
               }}
             >
-              TESTE LIVE
-            </a>
+              <span className="live-dot" />
+              ASSISTIR AO JOGO AGORA
+              <ArrowRight size={21} />
+            </button>
           ) : (
             <div className="next-note">
               <CalendarDays size={20} />
